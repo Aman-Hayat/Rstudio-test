@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2026-10-25" />
+  <title>Five Stops Across India</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Five Stops Across India</h1>
+<p class="date">25 October 2026</p>
+</header>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root { color-scheme: light; }
+  #title-block-header { display: none; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #193027; background: #f5f2e9; font: 17px/1.55 system-ui, -apple-system, sans-serif; }
+  main { max-width: 1050px; margin: auto; padding: 60px 22px 40px; }
+  .eyebrow { color: #a45234; text-transform: uppercase; letter-spacing: .2em; font-size: .75rem; font-weight: 800; }
+  h1 { font-family: Georgia, serif; font-size: clamp(2.7rem, 7vw, 5.2rem); line-height: 1.05; letter-spacing: -.04em; margin: 16px 0; }
+  .lead { max-width: 640px; color: #526159; font-size: 1.12rem; margin-bottom: 26px; }
+  .meta { font-size: .85rem; color: #647168; margin: 0 0 25px; }
+  #map { height: min(64vh, 610px); min-height: 420px; border-radius: 16px; border: 1px solid #d9d6ca; box-shadow: 0 18px 50px #1833291a; z-index: 0; }
+  .note { color: #647168; font-size: .84rem; margin-top: 18px; }
+  .leaflet-popup-content { font: 14px/1.5 system-ui, sans-serif; }
+  .leaflet-popup-content strong { color: #99462e; font-size: 1.1rem; }
+  @media (max-width: 560px) { main { padding-top: 32px; } #map { min-height: 460px; } }
+</style>
+<main>
+<div class="eyebrow">
+An interactive map
+</div>
+<h1>
+Five Stops Across India
+</h1>
+<p class="lead">
+From the Arabian Sea to the Bay of Bengal, explore five cities with a
+click. Tap a marker to see a short note, then drag and zoom to find your
+own route.
+</p>
+<p class="meta">
+Created 25 October 2026 · Made with R Markdown and Leaflet
+</p>
+<div id="map" role="application"
+aria-label="Interactive Leaflet map showing five cities in India">
+
+</div>
+<p class="note">
+City markers are approximate centers. Map tiles © OpenStreetMap
+contributors.
+</p>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map', { scrollWheelZoom: false }).setView([22.7, 79.8], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(map);
+  const stops = [
+    ['Jaipur', 26.9124, 75.7873, 'Pink facades, winding bazaars, and a city best explored slowly.'],
+    ['Mumbai', 19.0760, 72.8777, 'A coastline and a city that always seems to be in motion.'],
+    ['Kolkata', 22.5726, 88.3639, 'Bookshops, trams, and long conversations over tea.'],
+    ['Bengaluru', 12.9716, 77.5946, 'Garden paths and coffee stops between busy streets.'],
+    ['Kochi', 9.9312, 76.2673, 'Harbour views and an unhurried walk through Fort Kochi.']
+  ];
+  const bounds = [];
+  for (const [name, lat, lng, note] of stops) {
+    L.circleMarker([lat, lng], {
+      radius: 9, color: '#fff7e5', weight: 2, fillColor: '#b34e31', fillOpacity: 1
+    }).addTo(map).bindPopup(`<strong>${name}</strong><br>${note}`);
+    bounds.push([lat, lng]);
+  }
+  map.fitBounds(bounds, { padding: [38, 38] });
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+---
+title: "Five Stops Across India"
+date: "25 October 2026"
+output: html_document
+---
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root { color-scheme: light; }
+  #title-block-header { display: none; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #193027; background: #f5f2e9; font: 17px/1.55 system-ui, -apple-system, sans-serif; }
+  main { max-width: 1050px; margin: auto; padding: 60px 22px 40px; }
+  .eyebrow { color: #a45234; text-transform: uppercase; letter-spacing: .2em; font-size: .75rem; font-weight: 800; }
+  h1 { font-family: Georgia, serif; font-size: clamp(2.7rem, 7vw, 5.2rem); line-height: 1.05; letter-spacing: -.04em; margin: 16px 0; }
+  .lead { max-width: 640px; color: #526159; font-size: 1.12rem; margin-bottom: 26px; }
+  .meta { font-size: .85rem; color: #647168; margin: 0 0 25px; }
+  #map { height: min(64vh, 610px); min-height: 420px; border-radius: 16px; border: 1px solid #d9d6ca; box-shadow: 0 18px 50px #1833291a; z-index: 0; }
+  .note { color: #647168; font-size: .84rem; margin-top: 18px; }
+  .leaflet-popup-content { font: 14px/1.5 system-ui, sans-serif; }
+  .leaflet-popup-content strong { color: #99462e; font-size: 1.1rem; }
+  @media (max-width: 560px) { main { padding-top: 32px; } #map { min-height: 460px; } }
+</style>
+
+<main>
+<div class="eyebrow">An interactive map</div>
+<h1>Five Stops Across India</h1>
+<p class="lead">From the Arabian Sea to the Bay of Bengal, explore five cities with a click. Tap a marker to see a short note, then drag and zoom to find your own route.</p>
+<p class="meta">Created 25 October 2026 · Made with R Markdown and Leaflet</p>
+<div id="map" role="application" aria-label="Interactive Leaflet map showing five cities in India"></div>
+<p class="note">City markers are approximate centers. Map tiles © OpenStreetMap contributors.</p>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map', { scrollWheelZoom: false }).setView([22.7, 79.8], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(map);
+  const stops = [
+    ['Jaipur', 26.9124, 75.7873, 'Pink facades, winding bazaars, and a city best explored slowly.'],
+    ['Mumbai', 19.0760, 72.8777, 'A coastline and a city that always seems to be in motion.'],
+    ['Kolkata', 22.5726, 88.3639, 'Bookshops, trams, and long conversations over tea.'],
+    ['Bengaluru', 12.9716, 77.5946, 'Garden paths and coffee stops between busy streets.'],
+    ['Kochi', 9.9312, 76.2673, 'Harbour views and an unhurried walk through Fort Kochi.']
+  ];
+  const bounds = [];
+  for (const [name, lat, lng, note] of stops) {
+    L.circleMarker([lat, lng], {
+      radius: 9, color: '#fff7e5', weight: 2, fillColor: '#b34e31', fillOpacity: 1
+    }).addTo(map).bindPopup(`<strong>${name}</strong><br>${note}`);
+    bounds.push([lat, lng]);
+  }
+  map.fitBounds(bounds, { padding: [38, 38] });
+</script>
