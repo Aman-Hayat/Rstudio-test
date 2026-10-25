@@ -1,0 +1,49 @@
+Trip Fuel Planner
+========================================================
+author: Aman Hayat
+date: 25 October 2026
+css: pitch.css
+
+Know the approximate fuel cost before you leave.
+
+========================================================
+Why plan fuel?
+
+A distance alone does not tell you the cost of a journey.
+
+The same trip can use very different amounts of fuel in different cars.
+
+Trip Fuel Planner turns three familiar choices into a simple estimate.
+
+========================================================
+One screen, three inputs
+
+- Pick a car from the built-in `mtcars` data.
+- Set the distance in kilometres and price in rupees per litre.
+- See litres, estimated cost, and a comparison chart update immediately.
+
+The app explains these steps on its own page.
+
+========================================================
+The calculation is reproducible
+
+The source dataset reports miles per US gallon. We convert it to kilometres per litre, then estimate fuel for a 250 km trip at ₹100 per litre.
+
+```{r, echo=TRUE}
+mpg <- mtcars["Toyota Corolla", "mpg"]
+km_per_litre <- mpg * 0.425143707
+litres <- 250 / km_per_litre
+round(c(km_per_litre = km_per_litre,
+        litres = litres, cost_rupees = litres * 100), 2)
+```
+
+========================================================
+Try a route of your own
+
+The chart compares the ten lowest estimated fuel costs for the chosen journey.
+
+This is a teaching estimate using older cars. Road conditions and driving style change real consumption.
+
+Open the live app from the assignment submission and try your own journey.
+
+The full `ui.R` and `server.R` source accompanies the app on GitHub.
