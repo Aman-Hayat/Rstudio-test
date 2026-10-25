@@ -5,7 +5,7 @@ shinyServer(function(input, output) {
     req(input$car, input$distance, input$price)
     validate(need(is.finite(input$price) && input$price > 0,
                   "Enter a fuel price greater than zero."))
-    km_per_litre <- mtcars[, "mpg"] * 0.425143707
+    km_per_litre <- setNames(mtcars[, "mpg"], rownames(mtcars)) * 0.425143707
     litres <- input$distance / km_per_litre
     costs <- litres * input$price
     list(litres = litres, costs = costs)
